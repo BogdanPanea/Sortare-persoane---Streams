@@ -1,12 +1,15 @@
 package ro.bogdanpanea.homeworks;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.lang.*;
 
-public class FilterListWithStream {
+class FilterListWithStream {
 
-    private List<String> sourceList = new ArrayList<>();
+    private List<String> sourceList;
     private String month;
 
     public FilterListWithStream(List<String> sourceList, String month) {
@@ -16,17 +19,17 @@ public class FilterListWithStream {
 
     public List<String> filterList() {
 
-        List<String> filteredList = sourceList
+        return sourceList
                 .stream()
-                //.filter(s -> s.matches("\\d"))
                 .filter(s -> s.indexOf("/" + month + "/") > 0)
+                .filter(s -> chechLine(s, ",")) //linie incorecta
                 .sorted()
                 .collect(Collectors.toList());
 
-        for(String s : filteredList) {
-            System.out.println(s);
-        }
-        return filteredList;
+    }
 
+    public boolean chechLine(String s, String c) {
+
+        return s.split(c).length == 3;
     }
 }

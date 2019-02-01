@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ReadFromFileToList {
+class ReadFromFileToList {
 
     private String file;
 
-    public ReadFromFileToList(String file) {
+    ReadFromFileToList(String file) {
         this.file = file;
     }
 
-    public List<String> readFromCSV() {
+    List<String> readFromCSV() {
 
         List<String> list = new ArrayList<>();
 
@@ -30,5 +30,4 @@ public class ReadFromFileToList {
         }
         return list;
     }
-
 }
