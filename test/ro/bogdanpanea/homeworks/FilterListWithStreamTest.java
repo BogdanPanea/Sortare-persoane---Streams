@@ -11,7 +11,6 @@ public class FilterListWithStreamTest {
 
     private String sourceCSVFile = "Fisiere cu date" + File.separator + "Persons.csv";
     private String month = "06";
-    private String pattern = "D/MM/YYYY";
 
     @Test
     public void filterList() {
@@ -19,7 +18,7 @@ public class FilterListWithStreamTest {
         ReadFromFileToList readFromFileToList = new ReadFromFileToList(sourceCSVFile);
         List<String> readedList = readFromFileToList.readFromCSV();
 
-        FilterListWithStream filterListWithStream = new FilterListWithStream(readedList, month, pattern);
+        FilterListWithStream filterListWithStream = new FilterListWithStream(readedList, month);
         List<String> fiteredList = filterListWithStream.filterList();
 
         assertEquals(2, fiteredList.size());
