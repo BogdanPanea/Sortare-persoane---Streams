@@ -17,6 +17,7 @@ public class WriteListToNewFileTest {
     private String sourceCSVFile = "Fisiere cu date" + File.separator + "Persons.csv";
     private String targetCSVFile = "Fisiere cu date" + File.separator + "Filtered persons.csv";
     private String month = "06";
+    private String pattern = "D/MM/YYYY";
 
     @Test
     public void fileExistTest() {
@@ -26,7 +27,7 @@ public class WriteListToNewFileTest {
         ReadFromFileToList readFromFileToList = new ReadFromFileToList(sourceCSVFile);
         List<String> readedList = readFromFileToList.readFromCSV();
 
-        FilterListWithStream filterListWithStream = new FilterListWithStream(readedList, month);
+        FilterListWithStream filterListWithStream = new FilterListWithStream(readedList, month, pattern);
         List<String> fiteredList = filterListWithStream.filterList();
 
         WriteListToNewFile writeListToNewFile = new WriteListToNewFile(targetCSVFile, fiteredList);
@@ -43,7 +44,7 @@ public class WriteListToNewFileTest {
         ReadFromFileToList readFromFileToList = new ReadFromFileToList(sourceCSVFile);
         List<String> readedList = readFromFileToList.readFromCSV();
 
-        FilterListWithStream filterListWithStream = new FilterListWithStream(readedList, month);
+        FilterListWithStream filterListWithStream = new FilterListWithStream(readedList, month, pattern);
         List<String> fiteredList = filterListWithStream.filterList();
 
         WriteListToNewFile writeListToNewFile = new WriteListToNewFile(targetCSVFile, fiteredList);
